@@ -1,0 +1,9 @@
+---
+import { formatList } from "@/lib/utils";
+
+type Props = { authors: Array<string> };
+
+const { authors } = Astro.props;
+---
+
+<span>{formatList({ list: authors })}</span>

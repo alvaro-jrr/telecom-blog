@@ -4,13 +4,21 @@ import { getCollection } from "astro:content";
 import type { ClassValue } from "clsx";
 import PostItem from "./PostItem.astro";
 
-const posts = (await getCollection("blog")).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
-);
+type Props = {
+	class?: ClassValue;
+	emptyMessage: string;
+	order: "asc" | "desc";
+};
 
-type Props = { class?: ClassValue; emptyMessage: string };
+const { class: className, emptyMessage, order = "desc" } = Astro.props;
 
-const { class: className, emptyMessage } = Astro.props;
+const posts = (await getCollection("blog")).sort((a, b) => {
+	if (order === "desc") {
+		return b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
+	}
+
+	return a.data.pubDate.valueOf() - b.data.pubDate.valueOf();
+});
 ---
 
 {

@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedAuthors from "./FormattedAuthors.astro";
+import FormattedDate from "./FormattedDate.astro";
+
+type Props = CollectionEntry<"blog">["data"];
+
+const { authors, pubDate } = Astro.props;
+---
+
+<div class="flex flex-col gap-4 sm:flex-row sm:justify-between">
+	<div class="space-y-1">
+		<p class="text-sm font-medium text-muted-foreground">
+			{authors.length === 1 ? "Autor" : "Autores"}
+		</p>
+
+		<p><FormattedAuthors authors={authors} /></p>
+	</div>
+
+	<div class="space-y-1">
+		<p class="text-sm font-medium text-muted-foreground">Publicación</p>
+
+		<p><FormattedDate date={pubDate} /></p>
+	</div>
+</div>

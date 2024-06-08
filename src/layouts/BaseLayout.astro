@@ -9,22 +9,23 @@ type Props = {
 	title: string;
 	description: string;
 	class?: ClassValue;
+	author?: string;
 };
 
-const { title, description, class: className } = Astro.props;
+const { title, description, class: className, author } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={description} author={author} />
 	</head>
 
 	<body>
 		<div class="relative flex min-h-screen flex-col">
 			<Header />
 
-			<main class={cn("flex-1 w-full max-w-4xl container", className)}>
+			<main class={cn("flex-1 w-full max-w-3xl container", className)}>
 				<slot />
 			</main>
 
