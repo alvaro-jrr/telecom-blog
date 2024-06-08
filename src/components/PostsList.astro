@@ -1,0 +1,30 @@
+---
+import { cn } from "@/lib/utils";
+import { getCollection } from "astro:content";
+import type { ClassValue } from "clsx";
+import PostItem from "./PostItem.astro";
+
+const posts = (await getCollection("blog")).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
+);
+
+type Props = { class?: ClassValue; emptyMessage: string };
+
+const { class: className, emptyMessage } = Astro.props;
+---
+
+{
+	posts.length === 0 ? (
+		<div class="text-muted-foreground">{emptyMessage}</div>
+	) : (
+		<ul class={cn("w-full", className)}>
+			{posts.map((post) => {
+				return (
+					<li class="block">
+						<PostItem {...post} />
+					</li>
+				);
+			})}
+		</ul>
+	)
+}

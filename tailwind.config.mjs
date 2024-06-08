@@ -15,7 +15,10 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				karla: ["Karla Variable", ...defaultTheme.fontFamily.sans],
+				spaceGrotesk: [
+					"Space Grotesk Variable",
+					...defaultTheme.fontFamily.sans,
+				],
 			},
 			colors: {
 				border: "hsl(var(--border))",
