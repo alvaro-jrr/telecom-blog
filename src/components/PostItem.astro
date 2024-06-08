@@ -13,23 +13,24 @@ const {
 
 <a
 	href={`/blog/${slug}/`}
-	class="flex flex-col gap-6 rounded-lg border p-6 hover:bg-gray-50 sm:flex-row"
+	class="flex flex-col gap-6 rounded-lg border p-6 hover:bg-gray-50 sm:flex-row-reverse"
 >
 	{
 		hero && (
 			<Image
+				transition:name={`post-image-${slug}`}
 				height={hero.height}
 				width={hero.width}
 				src={hero.src}
 				alt={hero.alt}
-				class="aspect-video rounded-md object-cover sm:hidden"
+				class="aspect-video rounded-md object-cover sm:aspect-square sm:max-h-20 sm:max-w-20"
 				loading="eager"
 			/>
 		)
 	}
 
 	<div class="space-y-2 sm:flex-1">
-		<h4 class="font-semibold">
+		<h4 class="font-semibold" transition:name={`post-title-${slug}`}>
 			{title}
 		</h4>
 
@@ -37,17 +38,4 @@ const {
 			<FormattedDate date={pubDate} />
 		</p>
 	</div>
-
-	{
-		hero && (
-			<Image
-				src={hero.src}
-				height={hero.height}
-				width={hero.width}
-				alt={hero.alt}
-				class="hidden aspect-square max-h-20 max-w-20 rounded-md object-cover sm:block"
-				loading="eager"
-			/>
-		)
-	}
 </a>

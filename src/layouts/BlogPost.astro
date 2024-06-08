@@ -6,9 +6,9 @@ import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"blog">["data"] & { slug: string };
 
-const post = Astro.props;
+const { slug, ...post } = Astro.props;
 ---
 
 <BaseLayout
@@ -21,7 +21,9 @@ const post = Astro.props;
 			<div class="space-y-4 sm:text-center">
 				<p class="text-muted-foreground">Artículo</p>
 
-				<h1 class="text-4xl font-bold">{post.title}</h1>
+				<h1 class="text-4xl font-bold" transition:name={`post-title-${slug}`}>
+					{post.title}
+				</h1>
 			</div>
 
 			<PostMetaData {...post} />
@@ -29,6 +31,7 @@ const post = Astro.props;
 			{
 				post.hero && (
 					<Image
+						transition:name={`post-image-${slug}`}
 						width={post.hero.width}
 						height={post.hero.height}
 						src={post.hero.src}
