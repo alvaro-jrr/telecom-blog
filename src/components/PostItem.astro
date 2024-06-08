@@ -1,40 +1,53 @@
 ---
+import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
 
 type Props = CollectionEntry<"blog">;
 
-const post = Astro.props;
+const {
+	slug,
+	data: { title, hero, pubDate },
+} = Astro.props;
 ---
 
 <a
-	href={`/blog/${post.slug}/`}
+	href={`/blog/${slug}/`}
 	class="flex flex-col gap-6 rounded-lg border p-6 hover:bg-gray-50 sm:flex-row"
 >
-	<img
-		height={300}
-		src={post.data.heroImage}
-		alt=""
-		class="max-h-72 w-full rounded-md object-cover sm:hidden"
-		loading="lazy"
-	/>
+	{
+		hero && (
+			<Image
+				height={hero.height}
+				width={hero.width}
+				src={hero.src}
+				alt={hero.alt}
+				class="aspect-video rounded-md object-cover sm:hidden"
+				loading="eager"
+			/>
+		)
+	}
 
 	<div class="space-y-2 sm:flex-1">
 		<h4 class="font-semibold">
-			{post.data.title}
+			{title}
 		</h4>
 
 		<p class="text-muted-foreground">
-			<FormattedDate date={post.data.pubDate} />
+			<FormattedDate date={pubDate} />
 		</p>
 	</div>
 
-	<img
-		src={post.data.heroImage}
-		height={80}
-		width={80}
-		alt=""
-		class="hidden aspect-square rounded-md object-cover sm:block"
-		loading="lazy"
-	/>
+	{
+		hero && (
+			<Image
+				src={hero.src}
+				height={hero.height}
+				width={hero.width}
+				alt={hero.alt}
+				class="hidden aspect-square max-h-20 max-w-20 rounded-md object-cover sm:block"
+				loading="eager"
+			/>
+		)
+	}
 </a>

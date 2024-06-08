@@ -2,7 +2,13 @@
 title: "Comunicaciones Satelitales"
 description: "Información sobre las comunicaciones satelitales"
 pubDate: "Jun 08 2024"
-heroImage: "/blog-satellite-comunications.jpeg"
+hero:
+  {
+    src: "/blog-satellite-comunications.jpg",
+    height: 576,
+    width: 1024,
+    alt: "Satélite en el espacio con la tierra de fondo",
+  }
 authors: ["Alvaro Resplandor", "Julian López"]
 ---
 
@@ -13,14 +19,14 @@ En términos aeroespaciales un _satélite_ es un vehículo espacial lanzado por 
 Johannes Kepler (1571-1630), astrónomo alemán, descubrió las leyes que gobiernan el movimiento de los satélites. Las leyes del movimiento planetario describen la forma de la órbita, las velocidades del planeta y la distancia de un planeta con respecto al Sol.
 
 - Los planetas describen elipses con el Sol en uno de los focos.
-- La línea que une al Sol con un planeta barre áreas iguales en intervalos guales de tiempo.
+- La línea que une al Sol con un planeta barre áreas iguales en intervalos iguales de tiempo.
 - El cuadrado del tiempo de revolución de un planeta, dividido entre el cubo de su distancia promedio al Sol es un número igual para todos los planetas.
 
-## Orbitas Satelitales
+## Órbitas Satelitales
 
-Si el satélite describe su órbita en la misma dirección que la de rotación de la Tierra (en el sentido de las manecillas del reloj) y su velocidad angular es mayor que la de la Tierra la órbita se llama prógrada o posígrada.
+Si el satélite describe su órbita en la misma dirección que la de rotación de la Tierra (en el sentido de las manecillas del reloj) y su velocidad angular es mayor que la de la Tierra, la órbita se llama prógrada o posígrada.
 
-Si su órbita tiene dirección contraria a la de rotación de la Tierra, o la misma dirección, pero con una velocidad angular menor que la de la Tierra la órbita del satélite es retrógrada.
+Si su órbita tiene dirección contraria a la de rotación de la Tierra, o la misma dirección, pero con una velocidad angular menor que la de la Tierra, la órbita del satélite es retrógrada.
 
 ## Clasificación de los Satélites
 

@@ -2,6 +2,7 @@
 import PostMetaData from "@/components/PostMetaData.astro";
 import { SITE_TITLE } from "@/consts";
 import { formatList } from "@/lib/utils";
+import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 
@@ -26,13 +27,14 @@ const post = Astro.props;
 			<PostMetaData {...post} />
 
 			{
-				post.heroImage && (
-					<img
-						width={1020}
-						height={510}
-						src={post.heroImage}
-						alt=""
+				post.hero && (
+					<Image
+						width={post.hero.width}
+						height={post.hero.height}
+						src={post.hero.src}
+						alt={post.hero.alt}
 						class="max-h-72 rounded-md object-cover"
+						loading="eager"
 					/>
 				)
 			}
