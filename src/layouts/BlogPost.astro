@@ -2,7 +2,6 @@
 import DynamicImage from "@/components/DynamicImage.astro";
 import PostMetaData from "@/components/PostMetaData.astro";
 import { SITE_TITLE } from "@/consts";
-import { formatList } from "@/lib/utils";
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 
@@ -14,7 +13,9 @@ const { slug, ...post } = Astro.props;
 <BaseLayout
 	title={`${post.title} | ${SITE_TITLE}`}
 	description={post.description}
-	author={formatList({ list: post.authors })}
+	author={post.authors.join(", ")}
+	publishedTime={post.pubDate.toISOString()}
+	modifiedTime={post.updatedDate?.toISOString()}
 >
 	<article class="space-y-20 py-20">
 		<section class="space-y-20">
@@ -37,15 +38,6 @@ const { slug, ...post } = Astro.props;
 						transition:name={`post-image-${slug}`}
 						loading="eager"
 					/>
-					// <Image
-					// 	transition:name={`post-image-${slug}`}
-					// 	width={post.hero.width}
-					// 	height={post.hero.height}
-					// 	src={post.hero.src}
-					// 	alt={post.hero.alt}
-					// 	class="max-h-72 rounded-md object-cover"
-					// 	loading="eager"
-					// />
 				)
 			}
 		</section>

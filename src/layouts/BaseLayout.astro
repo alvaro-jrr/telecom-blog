@@ -3,22 +3,19 @@ import BaseHead from "@/components/BaseHead.astro";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
 import { cn } from "@/lib/utils";
-import { type ClassValue } from "clsx";
+import type { ComponentProps } from "astro/types";
 
-type Props = {
-	title: string;
-	description: string;
-	class?: ClassValue;
-	author?: string;
+type Props = ComponentProps<typeof BaseHead> & {
+	class?: string;
 };
 
-const { title, description, class: className, author } = Astro.props;
+const { class: className, ...baseHead } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
-		<BaseHead title={title} description={description} author={author} />
+		<BaseHead {...baseHead} />
 	</head>
 
 	<body>
