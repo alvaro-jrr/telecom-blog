@@ -81,6 +81,9 @@ importers:
       sharp:
         specifier: ^0.33.4
         version: 0.33.4
+      vite:
+        specifier: ^5.2.13
+        version: 5.2.13(@types/node@17.0.45)
 
 packages:
 
@@ -3072,8 +3075,8 @@ packages:
   vfile@6.0.1:
     resolution: {integrity: sha512-1bYqc7pt6NIADBJ98UiG0Bn/CHIVOoZ/IyEkqIruLg0mE1BKzkOXY2D6CSqQIcKqgadppE5lrxgWXJmXd7zZJw==}
 
-  vite@5.2.12:
-    resolution: {integrity: sha512-/gC8GxzxMK5ntBwb48pR32GGhENnjtY30G4A0jemunsBkiEZFw60s8InGpN8gkhHEkjnRK1aSAxeQgwvFhUHAA==}
+  vite@5.2.13:
+    resolution: {integrity: sha512-SSq1noJfY9pR3I1TUENL3rQYDQCFqgD+lM6fTRAM8Nv6Lsg5hDLaXkjETVeBt+7vZBCMoibD+6IWnT2mJ+Zb/A==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -4314,8 +4317,8 @@ snapshots:
       tsconfck: 3.1.0(typescript@5.4.5)
       unist-util-visit: 5.0.0
       vfile: 6.0.1
-      vite: 5.2.12(@types/node@17.0.45)
-      vitefu: 0.2.5(vite@5.2.12(@types/node@17.0.45))
+      vite: 5.2.13(@types/node@17.0.45)
+      vitefu: 0.2.5(vite@5.2.13(@types/node@17.0.45))
       which-pm: 2.2.0
       yargs-parser: 21.1.1
       zod: 3.23.8
@@ -6936,7 +6939,7 @@ snapshots:
       unist-util-stringify-position: 4.0.0
       vfile-message: 4.0.2
 
-  vite@5.2.12(@types/node@17.0.45):
+  vite@5.2.13(@types/node@17.0.45):
     dependencies:
       esbuild: 0.20.2
       postcss: 8.4.38
@@ -6945,9 +6948,9 @@ snapshots:
       '@types/node': 17.0.45
       fsevents: 2.3.3
 
-  vitefu@0.2.5(vite@5.2.12(@types/node@17.0.45)):
+  vitefu@0.2.5(vite@5.2.13(@types/node@17.0.45)):
     optionalDependencies:
-      vite: 5.2.12(@types/node@17.0.45)
+      vite: 5.2.13(@types/node@17.0.45)
 
   volar-service-css@0.0.45(@volar/language-service@2.2.5):
     dependencies:

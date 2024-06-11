@@ -35,6 +35,7 @@
     "prettier-plugin-astro": "^0.14.0",
     "prettier-plugin-astro-organize-imports": "^0.4.8",
     "prettier-plugin-tailwindcss": "^0.6.1",
-    "sharp": "^0.33.4"
+    "sharp": "^0.33.4",
+    "vite": "^5.2.13"
   }
 }
