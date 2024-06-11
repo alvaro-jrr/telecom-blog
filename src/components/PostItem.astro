@@ -1,6 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+import DynamicImage from "./DynamicImage.astro";
 import FormattedDate from "./FormattedDate.astro";
 
 type Props = CollectionEntry<"blog">;
@@ -17,13 +17,11 @@ const {
 >
 	{
 		hero && (
-			<Image
+			<DynamicImage
 				transition:name={`post-image-${slug}`}
-				height={hero.height}
-				width={hero.width}
 				src={hero.src}
 				alt={hero.alt}
-				class="aspect-video rounded-md object-cover sm:aspect-square sm:max-h-20 sm:max-w-20"
+				class="aspect-video rounded-md object-cover sm:aspect-square sm:h-20 sm:w-20"
 				loading="eager"
 			/>
 		)

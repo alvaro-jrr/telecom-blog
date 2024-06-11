@@ -1,0 +1,32 @@
+---
+import type { AstroBuiltinAttributes } from "astro";
+import { Image } from "astro:assets";
+
+interface Props extends AstroBuiltinAttributes {
+	src: string;
+	alt: string;
+	class?: string;
+	loading?: HTMLImageElement["loading"];
+}
+
+const { src, alt: altText, class: className, ...restOfProps } = Astro.props;
+
+const sourcePath = "src/assets/*.{jpeg,jpg,png,gif}";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+	"src/assets/*.{jpeg,jpg,png,gif}",
+);
+const image = images[src];
+
+if (!image) {
+	console.error(
+		`"${src}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`,
+	);
+}
+---
+
+{
+	image && (
+		<Image src={image()} alt={altText} class={className} {...restOfProps} />
+	)
+}

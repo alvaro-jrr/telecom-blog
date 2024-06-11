@@ -1,8 +1,8 @@
 ---
+import DynamicImage from "@/components/DynamicImage.astro";
 import PostMetaData from "@/components/PostMetaData.astro";
 import { SITE_TITLE } from "@/consts";
 import { formatList } from "@/lib/utils";
-import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 
@@ -30,15 +30,22 @@ const { slug, ...post } = Astro.props;
 
 			{
 				post.hero && (
-					<Image
-						transition:name={`post-image-${slug}`}
-						width={post.hero.width}
-						height={post.hero.height}
+					<DynamicImage
 						src={post.hero.src}
 						alt={post.hero.alt}
-						class="max-h-72 rounded-md object-cover"
+						class="rounded-md"
+						transition:name={`post-image-${slug}`}
 						loading="eager"
 					/>
+					// <Image
+					// 	transition:name={`post-image-${slug}`}
+					// 	width={post.hero.width}
+					// 	height={post.hero.height}
+					// 	src={post.hero.src}
+					// 	alt={post.hero.alt}
+					// 	class="max-h-72 rounded-md object-cover"
+					// 	loading="eager"
+					// />
 				)
 			}
 		</section>
