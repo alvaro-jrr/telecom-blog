@@ -12,8 +12,6 @@ const blog = defineCollection({
 		hero: z
 			.object({
 				src: z.string(),
-				height: z.number(),
-				width: z.number(),
 				alt: z.string(),
 			})
 			.optional(),
