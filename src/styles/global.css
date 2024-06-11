@@ -120,5 +120,11 @@
 		li {
 			@apply my-2 list-disc pl-1;
 		}
+
+		figure,
+		img,
+		video {
+			@apply my-8;
+		}
 	}
 }

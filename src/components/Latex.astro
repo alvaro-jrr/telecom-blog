@@ -1,0 +1,22 @@
+---
+import katex from "katex";
+
+interface Props {
+	formula: string;
+}
+
+const { formula } = Astro.props;
+
+const formulaAsHtml = katex.renderToString(formula, {
+	throwOnError: false,
+});
+---
+
+<span set:html={formulaAsHtml} />
+
+<link
+	rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css"
+	integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww"
+	crossorigin="anonymous"
+/>
