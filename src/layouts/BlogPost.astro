@@ -34,7 +34,7 @@ const { slug, ...post } = Astro.props;
 					<DynamicImage
 						src={post.hero.src}
 						alt={post.hero.alt}
-						class="rounded-md"
+						class="mx-auto rounded-md"
 						transition:name={`post-image-${slug}`}
 						loading="eager"
 					/>

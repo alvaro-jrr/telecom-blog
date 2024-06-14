@@ -1,0 +1,68 @@
+---
+title: "Comunicaciones Electrónicas"
+description: "Un breve resumen sobre las comunicaciones analógicas y digitales, la serie de Fourier y la transformada de Fourier"
+pubDate: "Jun 12 2024"
+hero:
+  {
+    src: "../assets/modulation.png",
+    alt: "Diagrama de modulación de comunicación electrónica",
+  }
+authors: ["Alvaro Resplandor", "Julian López"]
+---
+
+import Latex from "@/components/Latex.astro";
+
+Las comunicaciones electrónicas son la transmisión, recepción y procesamiento de información entre dos o más lugares, a través de circuitos electrónicos. La fuente original de información puede estar en forma analógica (continua) como la voz humana o música, o en forma digital (discreta) como los números codificados binariamente o códigos alfanúmericos. Cabe destacar que _todas_ las formas de formas de información se deben convertir a energía electromagnética antes de ser propagadas a un sistema de comunicaciones electrónicas. Los dos tipos básicos de comunicaciones electrónicas son **_analógico_** y **_digital_**.
+
+## Comunicación Analógica
+
+Un sistema de comunicaciones analógico es aquel en el que la energía se transmite y recibe en forma analógica, es decir, una señal de variación continua, como por ejemplo una onda senoidal. En este sistema, tanto la información como la portadora son señales analógicas.
+
+### Tipos de Modulación
+
+- Si la señal de información es analógica, y la amplitud (<Latex formula="V" />) de la portadora es proporcional a ella, se produce la _modulación de amplitud_ (AM).
+
+- Si se varía la frecuencia (<Latex formula="f" />) en forma proporcional a la señal de información, se produce la _modulación de frecuencia_ (FM).
+
+- Si varía la fase por último (<Latex formula="{\theta}" />) en proporción con la señal de información, se produce la _modulación de fase_ (PM).
+
+## Comunicación Digital
+
+El término de comunicaciones digitales abarca una amplia variedad de técnicas de comunicación, el cual incluye _transmisión digital_ y _radio digital_.
+
+- La transmisión digital, es un sistema digital verdadero, donde los pulsos digitales (con valores discretos +5V y tierra) se transfieren entre dos o más puntos en un sistema de comunicaciones.
+
+  Con la transmisión digital, no hay portadora analógica y la fuente original de información puede tener forma digital, si está en forma analógica se debe convertir a pulsos digitales antes de transmitirla y se debe convertir a la forma analógica en el extremo de recepción.
+
+- La radio digital, es la transmisión de portadoras analógicas moduladas digitalmente, entre dos o más puntos en un sistema de comunicaciones. En la radio digital, la señal moduladora y la señal demodulada son pulsos digitales, los cuales se pueden originar en un sistema digital de transmisión y en una fuente digital.
+
+Los sistemas de transmision digital requieren una instalación física entre el transmisor y el receptor. Por otro lado, en los sistemas digitales de radio el medio de transmisión puede ser una instalación física o el espacio libre (atmósfera terrestre).
+
+### Tipos de Modulación
+
+- Si la señal de información es digital y la amplitud (<Latex formula="V" />) de la portadora se varía proporcionalmente a la señal de información, se produce una señal modulada digitalmente, llamada _modulación por conmutación de amplitud_ (ASK).
+
+- Si la frecuencia (<Latex formula="f" />) varía en forma proporcional a la señal de información se produce la _modulación por conmutación de frecuencia_ (FSK).
+
+- Si la fase (<Latex formula="{\theta}" />) varía de manera proporcional a la señal de información, se produce la _modulación por conmutación de fase_ (PSK).
+
+- Si se varían al mismo tiempo la amplitud y la fase en proporción con la señal de información, resulta la _modulación de amplitud en cuadratura_ (QAM).
+
+<div class="text-center">
+	<Latex formula="v (t) = V \sin(2{\pi}ft + {\theta})" />
+</div>
+
+donde
+
+- <Latex formula="v (t)" /> = Voltaje variable senoidalmente en el tiempo
+- <Latex formula="V" /> = Amplitud máxima (volts)
+- <Latex formula="f" /> = Frecuencia (hertz)
+- <Latex formula="\theta" /> = Desplazamiento de fase (radianes)
+
+## Series de Fourier
+
+Son series de términos coseno y seno y surgen en la tarea práctica de representar funciones periódicas generales. Esta serie se utiliza en el análisis de señales para representar las componentes senoidales de una onda periódica no senoidal, es decir, para cambiar una señal en el dominio del tiempo a una señal en el dominio de frecuencia.
+
+<div class="text-center">
+	<Latex formula="F(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} [a_n \cos(\frac{n{\pi}x}{l}) + b_n \sin(\frac{n{\pi}x}{l})]" />
+</div>
