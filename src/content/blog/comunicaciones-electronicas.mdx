@@ -1,7 +1,7 @@
 ---
 title: "Comunicaciones Electrónicas"
 description: "Un breve resumen sobre las comunicaciones analógicas y digitales, la serie de Fourier y la transformada de Fourier"
-pubDate: "Jun 12 2024"
+pubDate: "Jun 25 2024"
 hero:
   {
     src: "../assets/modulation.png",
@@ -10,13 +10,23 @@ hero:
 authors: ["Alvaro Resplandor", "Julian López"]
 ---
 
+import { Image } from "astro:assets";
 import Latex from "@/components/Latex.astro";
+import analogicComunicationImage from "@/assets/analogic-comunication.jpeg";
+import digitalComunicationImage from "@/assets/digital-comunication.jpeg";
 
 Las comunicaciones electrónicas son la transmisión, recepción y procesamiento de información entre dos o más lugares, a través de circuitos electrónicos. La fuente original de información puede estar en forma analógica (continua) como la voz humana o música, o en forma digital (discreta) como los números codificados binariamente o códigos alfanúmericos. Cabe destacar que _todas_ las formas de formas de información se deben convertir a energía electromagnética antes de ser propagadas a un sistema de comunicaciones electrónicas. Los dos tipos básicos de comunicaciones electrónicas son **_analógico_** y **_digital_**.
 
 ## Comunicación Analógica
 
 Un sistema de comunicaciones analógico es aquel en el que la energía se transmite y recibe en forma analógica, es decir, una señal de variación continua, como por ejemplo una onda senoidal. En este sistema, tanto la información como la portadora son señales analógicas.
+
+<Image
+	src={analogicComunicationImage}
+	alt="Representación de la comunicación analógica"
+	class="mx-auto rounded-md"
+	loading="lazy"
+/>
 
 ### Tipos de Modulación
 
@@ -29,6 +39,13 @@ Un sistema de comunicaciones analógico es aquel en el que la energía se transm
 ## Comunicación Digital
 
 El término de comunicaciones digitales abarca una amplia variedad de técnicas de comunicación, el cual incluye _transmisión digital_ y _radio digital_.
+
+<Image
+	src={digitalComunicationImage}
+	alt="Representación de la comunicación digital"
+	class="mx-auto rounded-md"
+	loading="lazy"
+/>
 
 - La transmisión digital, es un sistema digital verdadero, donde los pulsos digitales (con valores discretos +5V y tierra) se transfieren entre dos o más puntos en un sistema de comunicaciones.
 
@@ -61,8 +78,52 @@ donde
 
 ## Series de Fourier
 
-Son series de términos coseno y seno y surgen en la tarea práctica de representar funciones periódicas generales. Esta serie se utiliza en el análisis de señales para representar las componentes senoidales de una onda periódica no senoidal, es decir, para cambiar una señal en el dominio del tiempo a una señal en el dominio de frecuencia.
+Son series de términos coseno y seno y surgen en la tarea práctica de representar funciones periódicas generales. Esta serie se utiliza en el análisis de señales para representar las componentes senoidales de una onda periódica no senoidal, es decir, para cambiar una señal en el dominio del tiempo a una señal en el dominio de frecuencia. En general, se puede obtener una serie de Fourier para cualquier función periódica, en forma de una serie de funciones trigonométricas con la siguiente forma matemática:
 
 <div class="text-center">
 	<Latex formula="F(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} [a_n \cos(\frac{n{\pi}x}{l}) + b_n \sin(\frac{n{\pi}x}{l})]" />
 </div>
+
+## Transformada de Fourier
+
+Relaciona una función en el dominio del tiempo con una función en el dominio de la frecuencia. Los valores de frecuencia componentes, extendidas para todo el espectro, son representados como picos en el dominio de la frecuencia. La transformada de Fourier es básicamente el espectro de frecuencias de una función, es decir, al aplicar la transformada de Fourier a una función sólo se visualizará un rango de valores de frecuencias para todos los valores de la función en un cierto dominio.
+
+La transformada de Fourier es utilizada para obtener información de una señal determinada que no es evidente en el dominio temporal, a través de su traducción al dominio de frecuencias.
+
+<ul>
+  <li>
+      <p>
+        Ecuación integral de Fourier en el dominio transformado J; la frecuencia toma el valor <Latex formula="f = 2\pi w" />
+      </p>
+
+          <div class="text-center">
+            <Latex formula="F(jw) = \int_{-\infty}^{\infty} f(t) e^{-jwt} dt" />
+          </div>
+
+      </li>
+
+      <li>
+          <p>
+            Ecuación integral de Fourier en el dominio de tiempo T
+          </p>
+
+            <div class="text-center">
+              <Latex formula="f(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} F(jw) e^{-jwt} dw" />
+            </div>
+
+      </li>
+
+      <li>
+          <p>
+            Transformada de Fourier
+          </p>
+
+            <div class="text-center">
+              <Latex formula="F(f(t)) = F(jw) = \int_{-\infty}^{\infty} f(t) e^{-jwt} dt" />
+            </div>
+
+      </li>
+
+  </ul>
+
+En la modulación de señales, se observó que existen diferentes métodos de modulación (AM, PM y FM). Cada uno de estos es caracterizado por una ecuación matemática que representa una función la cual, a efectos prácticos, se aplica la ecuación característica de la señal portadora. Estas ecuaciones tienen su fundamento matemático en la transformada de Fourier.
